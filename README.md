@@ -1,22 +1,24 @@
 # Garden Hub
 
-Interaktywny planer ogrodu: lista zadań, kalendarz wysiewów i osobista galeria zdjęć.
+An interactive garden planner with a task list, sowing calendar, and personal photo gallery.
 
-## Uruchomienie lokalne
+## Local setup
 
-Otwórz `index.html` bezpośrednio w przeglądarce lub uruchom prosty serwer:
+Start a local server:
 
 ```bash
 python -m http.server 8000
 ```
 
-Następnie wejdź na `http://localhost:8000`.
+Then open `http://localhost:8000` in your browser.
+
+Starting a local server is required because the page loads its HTML sections using `fetch()`.
 
 ## GitHub Pages
 
-1. Wgraj pliki projektu do gałęzi `main` w repozytorium GitHub.
-2. Otwórz **Settings → Pages**.
-3. W sekcji **Build and deployment** wybierz **Deploy from a branch**.
-4. Wybierz gałąź `main` i folder `/ (root)`, a następnie kliknij **Save**.
+1. Upload the project files to the `main` branch of a GitHub repository.
+2. Open **Settings → Pages**.
+3. Under **Build and deployment**, select **Deploy from a branch**.
+4. Select the `main` branch and the `/ (root)` folder, then click **Save**.
 
-Dane zadań, wysiewów i zdjęć są zapisywane lokalnie w przeglądarce (localStorage).
+Tasks, sowing events, and photos are stored locally in the browser using `localStorage`.
