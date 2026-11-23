@@ -1,4 +1,3 @@
-/* Obsługa otwierania i zamykania okien modalnych */
 GardenHub.setupModals = function () {
   GardenHub.$$('[data-close-modal]').forEach(button => {
     button.onclick = GardenHub.closeModals;

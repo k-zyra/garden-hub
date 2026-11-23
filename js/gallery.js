@@ -1,4 +1,3 @@
-/* Galeria zdjęć i upload */
 GardenHub.renderGallery = function () {
   GardenHub.$('#galleryGrid').innerHTML = GardenHub.photos.length
     ? GardenHub.photos.map(photo => `<article class="photo-card"><img src="${photo.image}" alt="${GardenHub.escapeHtml(photo.title)}"><div class="photo-info"><button class="photo-delete" data-photo-delete="${photo.id}" aria-label="Usuń zdjęcie">×</button><h3>${GardenHub.escapeHtml(photo.title)}</h3><p>${GardenHub.escapeHtml(photo.description)}</p><small>${new Date(photo.date).toLocaleDateString('pl-PL', { day: 'numeric', month: 'long', year: 'numeric' })}</small></div></article>`).join('')

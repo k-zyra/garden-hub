@@ -1,4 +1,3 @@
-/* Kalendarz wysiewów */
 GardenHub.renderCalendar = function () {
   const year = GardenHub.viewDate.getFullYear();
   const month = GardenHub.viewDate.getMonth();

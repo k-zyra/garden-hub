@@ -1,4 +1,4 @@
-/* Punkt startowy aplikacji */
+// App start point
 GardenHub.setupNavigation();
 GardenHub.setupTasks();
 GardenHub.setupCalendar();

@@ -1,4 +1,3 @@
-/* Lista zadań i widok pulpitu */
 GardenHub.bindTaskChecks = function () {
   GardenHub.$$('[data-task-check]').forEach(button => {
     button.onclick = () => {

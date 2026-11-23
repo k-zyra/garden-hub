@@ -1,4 +1,3 @@
-/* Nawigacja między widokami i informacje o sezonie */
 GardenHub.showView = function (name) {
   GardenHub.$$('.view').forEach(view => view.classList.remove('active'));
   GardenHub.$(`#${name}View`).classList.add('active');

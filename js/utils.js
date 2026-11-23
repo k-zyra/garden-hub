@@ -1,4 +1,3 @@
-/* Wspólne funkcje i stan aplikacji */
 window.GardenHub = window.GardenHub || {};
 
 GardenHub.$ = selector => document.querySelector(selector);
