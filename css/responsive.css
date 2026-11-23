@@ -1,0 +1,36 @@
+/* Układ mobilny i responsywność */
+@media(max-width:1000px){
+  .sidebar { width: 210px; }
+  .main { margin-left: 210px; }
+  .content { padding: 30px; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media(max-width:720px){
+  .sidebar {
+    transform: translateX(-100%);
+    transition: .25s;
+    width: 238px;
+    background: rgba(250,251,247,.98);
+  }
+  .sidebar.open { transform: translateX(0); box-shadow: 10px 0 30px rgba(0,0,0,.12); }
+  .main { margin-left: 0; }
+  .main::before, .main::after { display: none; }
+  .topbar { height: 68px; padding: 0 20px; }
+  .menu-button { display: flex; width: 38px; height: 38px; border: 0; background: transparent; flex-direction: column; justify-content: center; gap: 5px; margin-right: 12px; }
+  .menu-button span { width: 20px; height: 2px; background: var(--ink); }
+  .content { padding: 24px 16px; }
+  .welcome-row { align-items: center; }
+  .welcome-row h1 { font-size: 36px; }
+  .welcome-row .primary-button { padding: 0 12px; }
+  .stats-grid { grid-template-columns: 1fr; gap: 12px; }
+  .stat-card { height: 88px; }
+  .inline-form { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .calendar-grid { min-height: 420px; }
+  .calendar-day { min-height: 70px; padding: 5px; }
+  .calendar-event { font-size: 8px; }
+  .weekday-row span { padding: 8px 2px; }
+  .photo-card img { height: 250px; }
+}
