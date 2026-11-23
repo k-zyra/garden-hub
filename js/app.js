@@ -1,11 +1,17 @@
 // App start point
-GardenHub.setupNavigation();
-GardenHub.setupTasks();
-GardenHub.setupCalendar();
-GardenHub.setupGallery();
-GardenHub.setupModals();
+async function startApp() {
+  GardenHub.setupNavigation();
+  GardenHub.setupTasks();
+  GardenHub.setupCalendar();
+  GardenHub.setupGallery();
+  GardenHub.setupModals();
 
-GardenHub.renderDashboard();
-GardenHub.renderTasks();
-GardenHub.renderCalendar();
-GardenHub.renderGallery();
+  await GardenHub.loadFromSupabase();
+
+  GardenHub.renderDashboard();
+  GardenHub.renderTasks();
+  GardenHub.renderCalendar();
+  GardenHub.renderGallery();
+}
+
+startApp();

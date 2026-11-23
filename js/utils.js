@@ -46,3 +46,48 @@ GardenHub.escapeHtml = value => {
 
 GardenHub.openModal = id => document.querySelector(`#${id}`).classList.add('open');
 GardenHub.closeModals = () => GardenHub.$$('.modal-backdrop').forEach(modal => modal.classList.remove('open'));
+
+GardenHub.loadFromSupabase = async function () {
+  const { data: taskRows, error: taskError } = await gardenSupabase
+    .from('tasks')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  const { data: eventRows, error: eventError } = await gardenSupabase
+    .from('events')
+    .select('*')
+    .order('date', { ascending: true });
+
+  const { data: photoRows, error: photoError } = await gardenSupabase
+    .from('photos')
+    .select('*')
+    .order('date', { ascending: false });
+
+  if (!taskError && taskRows) {
+    GardenHub.tasks = taskRows.map(row => ({
+      id: row.id,
+      name: row.name,
+      date: row.date || '',
+      done: row.done
+    }));
+  }
+
+  if (!eventError && eventRows) {
+    GardenHub.events = eventRows.map(row => ({
+      id: row.id,
+      name: row.name,
+      date: row.date,
+      color: row.color
+    }));
+  }
+
+  if (!photoError && photoRows) {
+    GardenHub.photos = photoRows.map(row => ({
+      id: row.id,
+      title: row.title,
+      description: row.description,
+      image: row.image,
+      date: row.date
+    }));
+  }
+};

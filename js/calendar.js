@@ -54,13 +54,28 @@ GardenHub.setupCalendar = function () {
 
   GardenHub.$('#eventForm').addEventListener('submit', event => {
     event.preventDefault();
-    GardenHub.events.push({
+    const eventData = {
       id: Date.now(),
       name: GardenHub.$('#eventName').value.trim(),
       date: GardenHub.$('#eventDate').value,
       color: GardenHub.$('#eventColor').value
-    });
+    };
+
+    GardenHub.events.push(eventData);
     GardenHub.save();
+
+    gardenSupabase
+      .from('events')
+      .insert({
+        id: eventData.id,
+        name: eventData.name,
+        date: eventData.date,
+        color: eventData.color
+      })
+      .then(({ error }) => {
+        if (error) console.error('Nie udało się dodać wysiewu:', error);
+      });
+
     GardenHub.closeModals();
     event.target.reset();
     GardenHub.renderCalendar();

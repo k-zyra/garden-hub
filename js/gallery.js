@@ -5,8 +5,18 @@ GardenHub.renderGallery = function () {
 
   GardenHub.$$('[data-photo-delete]').forEach(button => {
     button.onclick = () => {
-      GardenHub.photos = GardenHub.photos.filter(photo => photo.id !== Number(button.dataset.photoDelete));
+      const photoId = Number(button.dataset.photoDelete);
+      GardenHub.photos = GardenHub.photos.filter(photo => photo.id !== photoId);
       GardenHub.save();
+
+      gardenSupabase
+        .from('photos')
+        .delete()
+        .eq('id', photoId)
+        .then(({ error }) => {
+          if (error) console.error('Nie udało się usunąć zdjęcia:', error);
+        });
+
       GardenHub.renderGallery();
       GardenHub.renderDashboard();
     };
@@ -29,14 +39,30 @@ GardenHub.setupGallery = function () {
 
     const reader = new FileReader();
     reader.onload = () => {
-      GardenHub.photos.unshift({
+      const photo = {
         id: Date.now(),
         title: GardenHub.$('#photoTitle').value.trim(),
         description: GardenHub.$('#photoDescription').value.trim(),
         image: reader.result,
         date: new Date().toISOString()
-      });
+      };
+
+      GardenHub.photos.unshift(photo);
       GardenHub.save();
+
+      gardenSupabase
+        .from('photos')
+        .insert({
+          id: photo.id,
+          title: photo.title,
+          description: photo.description,
+          image: photo.image,
+          date: photo.date
+        })
+        .then(({ error }) => {
+          if (error) console.error('Nie udało się dodać zdjęcia:', error);
+        });
+
       GardenHub.closeModals();
       event.target.reset();
       GardenHub.$('#uploadBox').querySelector('span').textContent = 'Wybierz zdjęcie';

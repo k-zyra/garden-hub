@@ -21,4 +21,13 @@ Starting a local server is required because the page loads its HTML sections usi
 3. Under **Build and deployment**, select **Deploy from a branch**.
 4. Select the `main` branch and the `/ (root)` folder, then click **Save**.
 
-Tasks, sowing events, and photos are stored locally in the browser using `localStorage`.
+## Supabase setup
+
+1. Open the Supabase SQL Editor.
+2. Run the statements from `supabase.sql`.
+3. Keep the public publishable key in `js/supabase-config.js`.
+4. Do not add a Supabase `service_role` key to the browser project.
+
+Tasks, sowing events, and photos are synchronized with Supabase. `localStorage` remains as a local fallback/cache.
+
+The example SQL policies allow public read and write access. For private per-user data, enable Supabase authentication and add user ownership plus stricter Row Level Security policies.

@@ -5,6 +5,15 @@ GardenHub.bindTaskChecks = function () {
       if (!task) return;
       task.done = !task.done;
       GardenHub.save();
+
+      gardenSupabase
+        .from('tasks')
+        .update({ done: task.done })
+        .eq('id', task.id)
+        .then(({ error }) => {
+          if (error) console.error('Nie udało się zaktualizować zadania:', error);
+        });
+
       GardenHub.renderDashboard();
       GardenHub.renderTasks();
     };
@@ -52,8 +61,18 @@ GardenHub.renderTasks = function () {
   GardenHub.bindTaskChecks();
   GardenHub.$$('[data-task-delete]').forEach(button => {
     button.onclick = () => {
-      GardenHub.tasks = GardenHub.tasks.filter(task => task.id !== Number(button.dataset.taskDelete));
+      const taskId = Number(button.dataset.taskDelete);
+      GardenHub.tasks = GardenHub.tasks.filter(task => task.id !== taskId);
       GardenHub.save();
+
+      gardenSupabase
+        .from('tasks')
+        .delete()
+        .eq('id', taskId)
+        .then(({ error }) => {
+          if (error) console.error('Nie udało się usunąć zadania:', error);
+        });
+
       GardenHub.renderTasks();
       GardenHub.renderDashboard();
     };
@@ -62,8 +81,29 @@ GardenHub.renderTasks = function () {
 
 GardenHub.addTask = function (name, date) {
   if (!name.trim()) return;
-  GardenHub.tasks.unshift({ id: Date.now(), name: name.trim(), date: date || '', done: false });
+
+  const task = {
+    id: Date.now(),
+    name: name.trim(),
+    date: date || null,
+    done: false
+  };
+
+  GardenHub.tasks.unshift(task);
   GardenHub.save();
+
+  gardenSupabase
+    .from('tasks')
+    .insert({
+      id: task.id,
+      name: task.name,
+      date: task.date,
+      done: task.done
+    })
+    .then(({ error }) => {
+      if (error) console.error('Nie udało się dodać zadania:', error);
+    });
+
   GardenHub.renderTasks();
   GardenHub.renderDashboard();
 };
