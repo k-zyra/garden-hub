@@ -1,0 +1,11 @@
+<div class="modal-backdrop" id="taskModal" role="dialog" aria-modal="true" aria-labelledby="taskModalTitle">
+  <div class="modal"><button class="modal-close" data-close-modal aria-label="Zamknij">×</button><p class="eyebrow">Nowe zadanie</p><h2 id="taskModalTitle">Co trzeba zrobić?</h2><form id="modalTaskForm"><input id="modalTaskInput" type="text" placeholder="Np. Podlać pomidory" required><label>Termin<input id="modalTaskDate" type="date"></label><button class="primary-button" type="submit">Dodaj zadanie</button></form></div>
+</div>
+
+<div class="modal-backdrop" id="eventModal" role="dialog" aria-modal="true">
+  <div class="modal"><button class="modal-close" data-close-modal aria-label="Zamknij">×</button><p class="eyebrow">Kalendarz sezonu</p><h2>Dodaj wysiew</h2><form id="eventForm"><input id="eventName" type="text" placeholder="Nazwa rośliny" required><label>Data wysiewu<input id="eventDate" type="date" required></label><label>Kolor<select id="eventColor"><option value="green">Zielony</option><option value="amber">Pomarańczowy</option><option value="blue">Niebieski</option><option value="pink">Różowy</option></select></label><button class="primary-button" type="submit">Dodaj do kalendarza</button></form></div>
+</div>
+
+<div class="modal-backdrop" id="photoModal" role="dialog" aria-modal="true">
+  <div class="modal"><button class="modal-close" data-close-modal aria-label="Zamknij">×</button><p class="eyebrow">Nowe wspomnienie</p><h2>Dodaj zdjęcie</h2><form id="photoForm"><label class="upload-box" id="uploadBox"><input id="photoFile" type="file" accept="image/*" required><svg viewBox="0 0 24 24"><path d="M12 16V4M8 8l4-4 4 4M5 14v6h14v-6"/></svg><span>Wybierz zdjęcie</span><small>PNG lub JPG</small></label><input id="photoTitle" type="text" placeholder="Tytuł zdjęcia" required><textarea id="photoDescription" placeholder="Krótki opis" rows="3"></textarea><button class="primary-button" type="submit">Dodaj do galerii</button></form></div>
+</div>

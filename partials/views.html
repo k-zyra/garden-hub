@@ -1,0 +1,52 @@
+<div class="content">
+  <section id="todayView" class="view active">
+    <div class="welcome-row">
+      <div><p class="eyebrow">Witaj ponownie</p><h1>Jak rośnie Twój ogród?</h1></div>
+      <button class="primary-button" id="quickAddButton"><span>+</span> Dodaj zadanie</button>
+    </div>
+
+    <div class="stats-grid">
+      <article class="stat-card"><div class="stat-icon green"><svg viewBox="0 0 24 24"><path d="M12 21V10M12 14c-5 0-7-3-7-7 5 0 9 3 9 9Zm0 3c5 0 7-3 7-7-5 0-7 3-7 7Z"/></svg></div><div><strong id="plantCount">0</strong><span>Rośliny w ogrodzie</span></div></article>
+      <article class="stat-card"><div class="stat-icon amber"><svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 7h8M8 11h8M8 15h5"/></svg></div><div><strong id="taskCount">0</strong><span>Zadań do wykonania</span></div></article>
+      <article class="stat-card"><div class="stat-icon blue"><svg viewBox="0 0 24 24"><path d="M5 5h14v14H5zM8 3v4M16 3v4M5 9h14"/></svg></div><div><strong id="eventCount">0</strong><span>Wydarzenia w sezonie</span></div></article>
+    </div>
+
+    <div class="dashboard-grid">
+      <article class="panel tasks-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Dzisiejszy plan</p><h2>Zadania</h2></div><button class="text-button" data-view-link="tasks">Zobacz wszystkie →</button></div>
+        <div id="todayTaskList" class="task-preview"></div>
+      </article>
+      <article class="panel next-panel">
+        <div class="panel-heading"><div><p class="eyebrow">Nadchodzące</p><h2>Najbliższe wysiewy</h2></div></div>
+        <div id="upcomingList" class="upcoming-list"></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="tasksView" class="view">
+    <div class="welcome-row"><div><p class="eyebrow">Organizuj pracę</p><h1>Moja lista zadań</h1></div><button class="primary-button" id="taskViewAdd"><span>+</span> Dodaj zadanie</button></div>
+    <article class="panel full-panel">
+      <form id="taskForm" class="inline-form">
+        <input id="taskInput" type="text" placeholder="Co masz do zrobienia?" required>
+        <input id="taskDate" type="date">
+        <button type="submit" class="primary-button">Dodaj</button>
+      </form>
+      <div class="filter-row"><button class="filter active" data-filter="all">Wszystkie</button><button class="filter" data-filter="active">Do wykonania</button><button class="filter" data-filter="done">Zrobione</button></div>
+      <div id="taskList" class="task-list"></div>
+    </article>
+  </section>
+
+  <section id="calendarView" class="view">
+    <div class="welcome-row"><div><p class="eyebrow">Plan sezonu</p><h1>Kalendarz wysiewów</h1></div><button class="primary-button" id="eventAddButton"><span>+</span> Dodaj wysiew</button></div>
+    <article class="panel calendar-panel">
+      <div class="calendar-toolbar"><button class="icon-button" id="prevMonth" aria-label="Poprzedni miesiąc">‹</button><h2 id="calendarTitle"></h2><button class="icon-button" id="nextMonth" aria-label="Następny miesiąc">›</button></div>
+      <div class="weekday-row"><span>Pn</span><span>Wt</span><span>Śr</span><span>Cz</span><span>Pt</span><span>Sb</span><span>Nd</span></div>
+      <div id="calendarGrid" class="calendar-grid"></div>
+    </article>
+  </section>
+
+  <section id="galleryView" class="view">
+    <div class="welcome-row"><div><p class="eyebrow">Wspomnienia z grządki</p><h1>Galeria ogrodu</h1></div><button class="primary-button" id="photoAddButton"><span>+</span> Dodaj zdjęcie</button></div>
+    <div id="galleryGrid" class="gallery-grid"></div>
+  </section>
+</div>
