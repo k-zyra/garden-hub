@@ -1,0 +1,110 @@
+:root{
+  --ink:#26372e;
+  --green:#4f765f;
+  --green-2:#789884;
+  --cream:#f7f8f2;
+  --line:#dde5da;
+  --sage:#eef3e9;
+}
+
+body{
+  font-family:'Manrope',sans-serif;
+  color:var(--ink);
+  background:
+    linear-gradient(rgba(247,248,242,.91),rgba(247,248,242,.91)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%2389a18f' stroke-opacity='.22' stroke-width='1.5'%3E%3Cpath d='M44 178c3-54 35-94 83-124'/%3E%3Cpath d='M71 145c-24-2-38-15-42-36 23-1 38 11 42 36ZM91 119c-1-23 9-39 28-48 10 20 1 38-28 48ZM58 161c-23 1-38-8-46-27 20-7 38 2 46 27ZM116 94c17-18 36-21 54-10-12 18-31 22-54 10Z'/%3E%3Cpath d='M176 218c-2-38-24-68-58-87'/%3E%3Cpath d='M157 194c17-1 28-10 31-25-17-1-28 8-31 25ZM145 177c0-17-7-28-21-34-7 15 0 27 21 34Z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+
+.sidebar{
+  background:rgba(250,251,247,.96);
+  border-right:1px solid #dde5da;
+  backdrop-filter:blur(10px);
+}
+
+.brand,
+.welcome-row h1,
+.panel h2,
+.modal h2,
+.stat-card strong,
+.upcoming-date strong,
+.calendar-toolbar h2,
+.photo-info h3{
+  font-family:'Cormorant Garamond',serif;
+}
+
+.brand{font-size:24px;letter-spacing:.2px}
+.brand-mark{background:#668972;border-radius:12px;box-shadow:0 7px 18px rgba(79,118,95,.16)}
+.brand>span:last-child span{color:#91a58f}
+
+.nav-item{border-radius:12px;letter-spacing:.1px}
+.nav-item.active{background:#edf3e8;color:#4f765f;box-shadow:inset 3px 0 #789884}
+.nav-item:not(.active):hover{background:#f5f7f1;color:#627a69}
+
+.season-card{background:#f6f8f2;border-radius:14px;border-color:#e1e6dc}
+.season-dot{background:#7fa083;box-shadow:0 0 0 5px #edf3e8}
+
+.topbar{background:rgba(255,255,252,.92);border-bottom-color:#dde5da;backdrop-filter:blur(8px)}
+.sun{background:#f4efdf;color:#a6a16b}
+
+.content{position:relative}
+.welcome-row h1{font-size:46px;color:#2d4837;font-weight:600;letter-spacing:-.5px}
+.welcome-row .eyebrow,.panel-heading .eyebrow{color:#8b9b8d}
+
+.primary-button{
+  background:#587a63;
+  border-radius:10px;
+  box-shadow:0 8px 20px rgba(79,118,95,.14);
+  transition:.18s ease;
+}
+.primary-button:hover{background:#466b55;transform:translateY(-1px)}
+
+.stats-grid{gap:20px}
+.stat-card,.panel{background:rgba(255,255,252,.94);border-color:#dde5da;border-radius:16px}
+.stat-card{box-shadow:0 8px 24px rgba(70,94,76,.035)}
+.stat-card strong{color:#3d5947;font-size:34px}
+.stat-card span{letter-spacing:.1px}
+.stat-icon.green{background:#edf3e8;color:#708c73}
+.stat-icon.amber{background:#f4f0df;color:#aaa05f}
+.stat-icon.blue{background:#edf2ed;color:#7c9482}
+
+.tasks-panel,.next-panel,.full-panel,.calendar-panel{box-shadow:0 12px 30px rgba(70,94,76,.045)}
+.panel-heading h2{font-size:26px;color:#354f3e}
+.text-button{color:#718776}
+
+.preview-task,.task-row,.upcoming-item,.weekday-row,.calendar-day{border-color:#edf0e8}
+.check-button{border-color:#cbd7c9}
+.check-button.done{background:#6d896f;border-color:#6d896f}
+.task-name{letter-spacing:.05px}
+.task-meta{color:#9aa79b}
+
+.upcoming-date{background:#eff4ea;border:1px solid #e4eadf;border-radius:12px}
+.upcoming-date strong{color:#4f765f}
+
+.inline-form input,.modal input,.modal textarea,.modal select{
+  border-color:#dce4d8;
+  background:#fffefa;
+  border-radius:10px;
+}
+.filter.active{color:#587a63;border-bottom-color:#587a63}
+
+.calendar-panel{overflow:hidden}
+.calendar-day.today .day-number{background:#587a63}
+.calendar-event.green{background:#e7efe2;color:#587052}
+.calendar-event.amber{background:#f4efdc;color:#817c4e}
+.calendar-event.blue{background:#e7eee8;color:#667f6d}
+.calendar-event.pink{background:#f1e9e4;color:#92776a}
+
+.photo-card{border-radius:16px;border-color:#dde5da;background:rgba(255,255,252,.96);box-shadow:0 10px 24px rgba(70,94,76,.05)}
+.photo-card img{filter:saturate(.78) sepia(.04)}
+.photo-info h3{font-size:23px;color:#3d5947}
+
+.modal-backdrop{background:rgba(43,66,52,.28);backdrop-filter:blur(5px)}
+.modal{border:1px solid #e1e7dd;border-radius:18px;box-shadow:0 24px 70px rgba(43,66,52,.18)}
+.modal h2{color:#354f3e;font-size:32px}
+.upload-box{background:#f6f8f2;border-color:#bdcbbb!important}
+
+@media(max-width:720px){
+  .sidebar{background:rgba(250,251,247,.98)}
+  .welcome-row h1{font-size:36px}
+  .stats-grid{gap:12px}
+}
