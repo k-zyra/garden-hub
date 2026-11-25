@@ -7,7 +7,7 @@ GardenHub.bindTaskChecks = function () {
       GardenHub.save();
 
       gardenSupabase
-        .from('tasks')
+        .from('gardenhub_tasks')
         .update({ done: task.done })
         .eq('id', task.id)
         .then(({ error }) => {
@@ -66,7 +66,7 @@ GardenHub.renderTasks = function () {
       GardenHub.save();
 
       gardenSupabase
-        .from('tasks')
+        .from('gardenhub_tasks')
         .delete()
         .eq('id', taskId)
         .then(({ error }) => {
@@ -93,7 +93,7 @@ GardenHub.addTask = function (name, date) {
   GardenHub.save();
 
   gardenSupabase
-    .from('tasks')
+    .from('gardenhub_tasks')
     .insert({
       id: task.id,
       name: task.name,

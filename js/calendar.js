@@ -65,7 +65,7 @@ GardenHub.setupCalendar = function () {
     GardenHub.save();
 
     gardenSupabase
-      .from('events')
+      .from('gardenhub_events')
       .insert({
         id: eventData.id,
         name: eventData.name,

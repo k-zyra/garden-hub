@@ -10,7 +10,7 @@ GardenHub.renderGallery = function () {
       GardenHub.save();
 
       gardenSupabase
-        .from('photos')
+        .from('gardenhub_photos')
         .delete()
         .eq('id', photoId)
         .then(({ error }) => {
@@ -51,7 +51,7 @@ GardenHub.setupGallery = function () {
       GardenHub.save();
 
       gardenSupabase
-        .from('photos')
+        .from('gardenhub_photos')
         .insert({
           id: photo.id,
           title: photo.title,

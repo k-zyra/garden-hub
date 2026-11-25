@@ -1,7 +1,6 @@
--- Run this in Supabase SQL Editor.
--- This schema is suitable for a demo or a single-user shared garden.
+-- Run this in Supabase SQL Editor
 
-create table if not exists public.tasks (
+create table if not exists public.gardenhub_tasks (
   id bigint primary key,
   name text not null,
   date date,
@@ -9,7 +8,7 @@ create table if not exists public.tasks (
   created_at timestamptz not null default now()
 );
 
-create table if not exists public.events (
+create table if not exists public.gardenhub_events (
   id bigint primary key,
   name text not null,
   date date not null,
@@ -17,7 +16,7 @@ create table if not exists public.events (
   created_at timestamptz not null default now()
 );
 
-create table if not exists public.photos (
+create table if not exists public.gardenhub_photos (
   id bigint primary key,
   title text not null,
   description text not null default '',
@@ -25,21 +24,21 @@ create table if not exists public.photos (
   date timestamptz not null default now()
 );
 
-alter table public.tasks enable row level security;
-alter table public.events enable row level security;
-alter table public.photos enable row level security;
+alter table public.gardenhub_tasks enable row level security;
+alter table public.gardenhub_events enable row level security;
+alter table public.gardenhub_photos enable row level security;
 
-create policy "Public read tasks" on public.tasks for select using (true);
-create policy "Public insert tasks" on public.tasks for insert with check (true);
-create policy "Public update tasks" on public.tasks for update using (true) with check (true);
-create policy "Public delete tasks" on public.tasks for delete using (true);
+create policy "GardenHub read tasks" on public.gardenhub_tasks for select using (true);
+create policy "GardenHub insert tasks" on public.gardenhub_tasks for insert with check (true);
+create policy "GardenHub update tasks" on public.gardenhub_tasks for update using (true) with check (true);
+create policy "GardenHub delete tasks" on public.gardenhub_tasks for delete using (true);
 
-create policy "Public read events" on public.events for select using (true);
-create policy "Public insert events" on public.events for insert with check (true);
-create policy "Public update events" on public.events for update using (true) with check (true);
-create policy "Public delete events" on public.events for delete using (true);
+create policy "GardenHub read events" on public.gardenhub_events for select using (true);
+create policy "GardenHub insert events" on public.gardenhub_events for insert with check (true);
+create policy "GardenHub update events" on public.gardenhub_events for update using (true) with check (true);
+create policy "GardenHub delete events" on public.gardenhub_events for delete using (true);
 
-create policy "Public read photos" on public.photos for select using (true);
-create policy "Public insert photos" on public.photos for insert with check (true);
-create policy "Public update photos" on public.photos for update using (true) with check (true);
-create policy "Public delete photos" on public.photos for delete using (true);
+create policy "GardenHub read photos" on public.gardenhub_photos for select using (true);
+create policy "GardenHub insert photos" on public.gardenhub_photos for insert with check (true);
+create policy "GardenHub update photos" on public.gardenhub_photos for update using (true) with check (true);
+create policy "GardenHub delete photos" on public.gardenhub_photos for delete using (true);

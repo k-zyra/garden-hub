@@ -49,17 +49,17 @@ GardenHub.closeModals = () => GardenHub.$$('.modal-backdrop').forEach(modal => m
 
 GardenHub.loadFromSupabase = async function () {
   const { data: taskRows, error: taskError } = await gardenSupabase
-    .from('tasks')
+    .from('gardenhub_tasks')
     .select('*')
     .order('created_at', { ascending: false });
 
   const { data: eventRows, error: eventError } = await gardenSupabase
-    .from('events')
+    .from('gardenhub_events')
     .select('*')
     .order('date', { ascending: true });
 
   const { data: photoRows, error: photoError } = await gardenSupabase
-    .from('photos')
+    .from('gardenhub_photos')
     .select('*')
     .order('date', { ascending: false });
 
