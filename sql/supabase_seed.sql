@@ -35,13 +35,6 @@ insert into public.gardenhub_photos (id, title, description, image, date) values
     'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=900&q=80',
     now() - interval '5 days'
   ),
-  (
-    3003,
-    'Poranne podlewanie',
-    'Grządki po nocnym deszczu i porannym podlewaniu.',
-    'https://images.unsplash.com/photo-1419257218501-0b13e4a6d8a3?auto=format&fit=crop&w=900&q=80',
-    now() - interval '8 days'
-  )
  on conflict (id) do update set
   title = excluded.title,
   description = excluded.description,
