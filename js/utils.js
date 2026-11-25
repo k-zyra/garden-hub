@@ -70,6 +70,8 @@ GardenHub.loadFromSupabase = async function () {
       date: row.date || '',
       done: row.done
     }));
+  } else if (taskError) {
+    console.error('Nie udało się pobrać zadań:', taskError);
   }
 
   if (!eventError && eventRows) {
@@ -79,6 +81,8 @@ GardenHub.loadFromSupabase = async function () {
       date: row.date,
       color: row.color
     }));
+  } else if (eventError) {
+    console.error('Nie udało się pobrać wysiewów:', eventError);
   }
 
   if (!photoError && photoRows) {
@@ -89,5 +93,11 @@ GardenHub.loadFromSupabase = async function () {
       image: row.image,
       date: row.date
     }));
+  } else if (photoError) {
+    console.error('Nie udało się pobrać zdjęć:', photoError);
+  }
+
+  if (!taskError && !eventError && !photoError) {
+    GardenHub.save();
   }
 };
